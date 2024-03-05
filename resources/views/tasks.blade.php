@@ -21,7 +21,8 @@
                             <label for="task-name" class="col-sm-3 control-label">Task</label>
 
                             <div class="col-sm-6">
-                                <input type="text" name="name" id="task-name" class="form-control" value="{{ old('task') }}">
+                                <input type="text" name="name" id="task-name" class="form-control"
+                                    value="{{ old('task') }}">
                             </div>
                         </div>
 
@@ -29,7 +30,7 @@
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
                                 <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-btn fa-plus"></i>Add Task
+                                    <i class="fa fa-btn fa-plus"></i>Add New Task
                                 </button>
                             </div>
                         </div>
@@ -53,11 +54,13 @@
                             <tbody>
                                 @foreach ($tasks as $task)
                                     <tr>
-                                        <td class="table-text"><div>{{ $task->name }}</div></td>
+                                        <td class="table-text">
+                                            <div>{{ $task->name }}</div>
+                                        </td>
 
                                         <!-- Task Delete Button -->
                                         <td>
-                                            <form action="{{'/task/' . $task->id }}" method="POST">
+                                            <form action="{{ '/task/' . $task->id }}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
 
